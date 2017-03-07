@@ -1,0 +1,60 @@
+{
+    "name": "simple-plugins",
+    "description": "Provides a Simple Plugin Manager.",
+    "version": "1.0.0",
+    "keywords": [
+        "Event Emitter",
+        "Weighted events"
+    ],
+    "main": "index.js",
+    "author": "Orgun109uk <orgun109uk@gmail.com>",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Orgun109uk/simple-plugins.git"
+    },
+    "bugs": {
+        "url": "https://github.com/Orgun109uk/simple-plugins/issues"
+    },
+    "engines": {
+        "node": ">= 5.3.0"
+    },
+    "devDependencies": {
+        "grunt": "^1.0.1",
+        "grunt-contrib-clean": "^1.0.0",
+        "grunt-contrib-jshint": "^1.1.0",
+        "grunt-eslint": "^19.0.0",
+        "grunt-mocha-istanbul": "^5.0.2",
+        "istanbul": "^0.4.5",
+        "jshint-stylish": "^2.2.1",
+        "load-grunt-tasks": "^3.5.2",
+        "mocha": "^3.2.0",
+        "simple-plugins-plugin": "git+https://github.com/Orgun109uk/simple-plugins-plugin.git",
+        "unit.js": "^2.0.0"
+    },
+    "dependencies": {
+        "async": "^2.1.5",
+        "sort-by-key": "^1.0.0",
+        "weighted-emitter": "^1.0.2"
+    },
+    "scripts": {
+        "test": "grunt"
+    },
+    "SimplePlugins": {
+        "example": {
+            "description": "An example plugin.",
+            "class": "simple-plugins-test",
+            "namespace": "lib/ExamplePlugin"
+        },
+        "example2": {
+            "description": "An example plugin.",
+            "class": "simple-plugins-test",
+            "namespace": "lib/ExamplePlugin2"
+        },
+        "example3": {
+            "description": "An example plugin.",
+            "class": "simple-plugins-test-error",
+            "namespace": "lib/ExamplePlugin3"
+        }
+    }
+}
