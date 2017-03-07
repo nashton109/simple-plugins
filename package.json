@@ -3,8 +3,8 @@
     "description": "Provides a Simple Plugin Manager.",
     "version": "1.0.0",
     "keywords": [
-        "Event Emitter",
-        "Weighted events"
+        "Weighted Plugins",
+        "Plugin Manager"
     ],
     "main": "index.js",
     "author": "Orgun109uk <orgun109uk@gmail.com>",
