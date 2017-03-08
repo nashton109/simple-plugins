@@ -147,7 +147,19 @@ describe('PluginManager', () => {
                     .isInstanceOf(require('simple-plugins-plugin/lib/plugins/Plugin3'));
 
                 done();
-            }, true);
+            }, { foo: 'bar' }, true);
+        });
+
+        it('plugin should have the context', function(done) {
+            this.timeout(5000);
+
+            const pm = new PluginManager(['simple', 'simple-plugins-test']);
+            pm.index(function() {
+                const plugin = pm.plugin('simple-plugins/example');
+                unitjs.object(plugin.context).hasKey('foo', 'bar');
+
+                done();
+            }, { foo: 'bar' }, true);
         });
     });
 
@@ -171,7 +183,7 @@ describe('PluginManager', () => {
 
                     done();
                 });
-            }, true);
+            }, { foo: 'bar' }, true);
         });
 
         it('should boot specified plugins', function(done) {
@@ -192,7 +204,7 @@ describe('PluginManager', () => {
                     'simple-plugins/example',
                     'simple-plugins-plugin/plugin-3'
                 ]);
-            }, true);
+            }, { foo: 'bar' }, true);
         });
 
         it('plugins which error in boot will not be added to the enabled list', function(done) {
@@ -209,7 +221,7 @@ describe('PluginManager', () => {
 
                     done();
                 });
-            }, true);
+            }, { foo: 'bar' }, true);
         });
     });
 
@@ -228,7 +240,7 @@ describe('PluginManager', () => {
                 unitjs.bool(pm.plugin('simple-plugins/example-2')).isNotTrue();
 
                 done();
-            }, true);
+            }, { foo: 'bar' }, true);
         });
 
         it('should return the plugin instance', function(done) {
@@ -239,7 +251,7 @@ describe('PluginManager', () => {
                 unitjs.object(pm.plugin('simple-plugins/example')).isInstanceOf(ExamplePlugin);
 
                 done();
-            }, true);
+            }, { foo: 'bar' }, true);
         });
     });
 
@@ -260,7 +272,7 @@ describe('PluginManager', () => {
                 unitjs.bool(pm.pluginId({})).isFalse();
 
                 done();
-            }, true);
+            }, { foo: 'bar' }, true);
         });
 
         it('should return plugin id', function(done) {
@@ -272,7 +284,7 @@ describe('PluginManager', () => {
                     .is('simple-plugins/example');
 
                 done();
-            }, true);
+            }, { foo: 'bar' }, true);
         });
     });
 
@@ -296,7 +308,7 @@ describe('PluginManager', () => {
                         done();
                     }, 'hello', {}, null, null);
                 });
-            }, true);
+            }, { foo: 'bar' }, true);
         });
 
         it('should send a message to specified plugins', function(done) {
@@ -320,7 +332,7 @@ describe('PluginManager', () => {
                         'simple-plugins/example'
                     ], null);
                 });
-            }, true);
+            }, { foo: 'bar' }, true);
         });
 
         it('should send a message to a single specified plugin', function(done) {
@@ -341,7 +353,7 @@ describe('PluginManager', () => {
                         done();
                     }, 'hello', {}, 'simple-plugins/example', null);
                 });
-            }, true);
+            }, { foo: 'bar' }, true);
         });
 
         it('should send a message and recieve data object', function(done) {
@@ -367,7 +379,7 @@ describe('PluginManager', () => {
                         'simple-plugins/example'
                     ], null);
                 });
-            }, true);
+            }, { foo: 'bar' }, true);
         });
 
         it('should ignore unknown message ids', function(done) {
@@ -391,7 +403,7 @@ describe('PluginManager', () => {
                         'simple-plugins/example'
                     ], null);
                 });
-            }, true);
+            }, { foo: 'bar' }, true);
         });
 
         it('can send message without done callback', function(done) {
@@ -409,7 +421,7 @@ describe('PluginManager', () => {
 
                     done();
                 });
-            }, true);
+            }, { foo: 'bar' }, true);
         });
     });
 });
